@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Django</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+      header {
+        background-color: #4caf50;
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+      }
+      main {
+        padding: 2rem;
+        text-align: center;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 1rem 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+      a {
+        color: #4caf50;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Learn Django</h1>
+    </header>
+    <main>
+      <p>Welcome to the {{ name }} learning page! Start building powerful web applications with Django.</p>
+
+      {% comment %} <h2>Variables & Filters</h2>
+      <p>Var no 1: {{ name|upper }}</p>
+      <p>Var no 2: {{ description|truncatewords:3 }}</p>
+      <p>Var no 3: {{ description|upper|truncatewords:4 }}</p>
+      <p>Var no 3: {{ name|lower }}</p>
+      <p>Var no 3: {{ description|capfirst }}</p>
+      <p>Var no 3: {{ namee|default:'nothing' }}</p>
+      <p>Var no 3: {{ name|length }}</p>
+      <p>Var no 3: {{ name|slice:3 }}</p> {% endcomment %}
+
+      {% comment %} <h2>Date & Time</h2>
+      <p>Date: {{ date }}</p>
+      <p>Date: {{ date|date }}</p>
+      <p>Date: {{ date|date:'D d M Y' }}</p>
+      <p>Date: {{ date|date:'SHORT_DATE_FORMAT' }}</p>
+      <p>Date: {{ date|time }}</p>
+      <p>Date: {{ date|time:'TIME_FORMAT' }}</p>
+      <p>Date: {{ date|time:'H i' }}</p> {% endcomment %}
+
+      {% comment %} <h2>Pricing & Filters</h2>
+      <p>Pricing: {{ p1 }}</p>
+      <p>Pricing: {{ p2 }}</p>
+      <p>Pricing: {{ p3 }}</p>
+
+      <p>Pricing: {{ p2|floatformat:0 }}</p>
+      <p>Pricing: {{ p2|floatformat:3 }}</p>
+      <p>Pricing: {{ p3|floatformat }}</p> {% endcomment %}
+
+      <h2>If Tag</h2>
+      <div>
+        {% if name == 'Django' and p10 or p2 %}
+          <strong>Inside of If!</strong>
+        {% else %}
+          <strong>Welcome to {{ name }}!</strong>
+        {% endif %}
+
+        {% if p1 > 10 %}
+          <p>P1 is greater than 10</p>
+        {% endif %}
+      </div>
+
+      <h2>For Loop</h2>
+      <div>
+        {% for item in items %}
+          <p>{{ forloop.counter }} : {{ item.name }} = {{ item.price }}</p>
+        {% empty %}
+          <p>No items available.</p>
+        {% endfor %}
+      </div>
+      <h2>With Tag</h2>
+      <div>
+        {% with total=17 %}
+          <p>Total: {{ total }}</p>
+        {% endwith %}
+      </div>
+      <p>
+        Visit the <a href="https://www.djangoproject.com/" target="_blank">official Django website</a> for more resources.
+      </p>
+    </main>
+    <footer>
+      <p>&copy; 2023 Learn Django</p>
+    </footer>
+  </body>
+</html>

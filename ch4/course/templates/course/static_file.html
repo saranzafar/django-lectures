@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Static File</title>
+    <link rel="stylesheet" href="{% static 'course/css/style.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Static File Example</h1>
+      <p>This is a simple HTML file with embedded CSS styling.</p>
+      {% comment %} <img src="{% static 'course/images/pic.png' %}" alt="Error" /> {% endcomment %}
+      <img src="{% get_static_prefix %}course/images/pic.png" alt="Error" />
+      <button onclick="disp()">Click me</button>
+    </div>
+
+    <script src="{% static 'course/js/script.js' %}"></script>
+  </body>
+</html>

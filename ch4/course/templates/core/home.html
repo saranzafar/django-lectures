@@ -1,0 +1,60 @@
+{% extends 'core/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {% block title %}
+
+      {% endblock %}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'course/css/style.css' %}" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f8fafc;
+      }
+      .hero {
+        background: linear-gradient(90deg, #4f46e5 0%, #6366f1 100%);
+        color: #fff;
+        padding: 80px 20px;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+      .hero p {
+        font-size: 1.25rem;
+        margin-bottom: 30px;
+      }
+      .hero a {
+        display: inline-block;
+        padding: 12px 32px;
+        background: #fff;
+        color: #4f46e5;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.2s, color 0.2s;
+      }
+      .hero a:hover {
+        background: #e0e7ff;
+        color: #3730a3;
+      }
+    </style>
+  </head>
+  <body>
+    {% block content %}
+
+    {% endblock %}
+    <section class="hero">
+      <h1>Welcome to Course Platform</h1>
+      <p>Learn new skills, advance your career, and explore a world of knowledge with our curated courses.</p>
+      {% comment %} <a href="{% url 'courses:list' %}">Browse Courses</a> {% endcomment %}
+    </section>
+  </body>
+</html>
