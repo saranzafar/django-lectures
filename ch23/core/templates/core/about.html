@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+  About | Programming Languages Info
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>About Programming Languages Info - {{ name }}</h1>
+    <p>Welcome to Programming Languages Info, your trusted resource for learning about various programming languages, their definitions, and concise descriptions. Whether you are a beginner or an experienced developer, our goal is to provide clear and accurate information to help you understand the world of programming languages.</p>
+    <ul class="languages-list">
+      <li class="language-item">
+        <div class="language-title">Python</div>
+        <div class="language-def">A high-level, interpreted programming language.</div>
+        <div>Python is known for its simple syntax and readability, making it ideal for beginners and professionals alike. It is widely used in web development, data science, automation, and more.</div>
+      </li>
+      <li class="language-item">
+        <div class="language-title">JavaScript</div>
+        <div class="language-def">A versatile, high-level scripting language for web development.</div>
+        <div>JavaScript enables interactive web pages and is an essential part of web applications. It runs in browsers and on servers via Node.js.</div>
+      </li>
+      <li class="language-item">
+        <div class="language-title">Java</div>
+        <div class="language-def">A class-based, object-oriented programming language.</div>
+        <div>Java is designed to have as few implementation dependencies as possible. It is widely used for building enterprise-scale applications, Android apps, and more.</div>
+      </li>
+      <li class="language-item">
+        <div class="language-title">C++</div>
+        <div class="language-def">A general-purpose, compiled programming language.</div>
+        <div>C++ extends the C programming language with object-oriented features. It is commonly used in system/software development, game development, and high-performance applications.</div>
+      </li>
+      <li class="language-item">
+        <div class="language-title">Ruby</div>
+        <div class="language-def">A dynamic, open-source programming language.</div>
+        <div>Ruby is known for its simplicity and productivity. It has an elegant syntax and is popular for web development, especially with the Ruby on Rails framework.</div>
+      </li>
+    </ul>
+    <p>Explore our website to learn more about programming languages, their features, and how they shape the technology landscape.</p>
+  </div>  
+{% endblock %}

@@ -1,0 +1,218 @@
+/* === Global Base Styles === */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fb;
+    color: #2c2c2c;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    line-height: 1.7;
+    padding-left: 1rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* === Navbar === */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e2235;
+    padding: 0.75rem 2rem;
+}
+
+.navbar .site-name {
+    color: #f0f0f5;
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+.navbar ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin-left: 2rem;
+}
+
+.navbar ul li a {
+    color: #cfd2dc;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.2s, background-color 0.2s;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    color: #1e2235;
+    background-color: #dbeafe;
+}
+
+/* === Header Section === */
+.header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: #1e2235;
+    color: #f0f0f5;
+    padding: 2rem 1rem 1.5rem 1rem;
+}
+
+.header img {
+    width: 70px;
+    margin-bottom: 1rem;
+}
+
+.header h1 {
+    font-size: 2.3rem;
+    letter-spacing: 1px;
+}
+
+.header p {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    color: #bcd9f4;
+}
+
+/* === Container === */
+.container {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    padding: 2.5rem 2rem;
+}
+
+/* === Sections === */
+.section {
+    margin-bottom: 2rem;
+}
+
+.section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: #335577;
+}
+
+.section ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* === Footer === */
+.footer {
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.95rem;
+    margin: 3rem 0 1rem 0;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar ul li {
+        margin: 0.5rem 0 0 0;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .section h2 {
+        font-size: 1.2rem;
+    }
+}
+/* === Merged Styles === */
+
+/* Languages List */
+.languages-list {
+    margin: 30px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.language-item {
+    margin-bottom: 25px;
+    padding: 18px 20px;
+    background: #f0f4fa;
+    border-left: 5px solid #2d6cdf;
+    border-radius: 6px;
+}
+
+.language-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #1a3a6b;
+    margin-bottom: 6px;
+}
+
+.language-def {
+    font-style: italic;
+    color: #444;
+    margin-bottom: 4px;
+}
+
+.hero {
+    background-color: #007bff; /* Bootstrap primary */
+    color: #fff;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.hero .container {
+    text-align: center;
+}
+
+.hero .display-4 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero .lead {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero .btn {
+    font-size: 1.125rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 0.3rem;
+    font-weight: 500;
+}
