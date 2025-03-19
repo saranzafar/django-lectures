@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Students</title>
+  </head>
+  <body>
+    <h1>Single Student</h1>
+    {% if student %}
+      <h3>Student Info is</h3>
+      <ul>
+        <li>
+          <strong>Id:</strong> {{ student.id }}<br />
+          <strong>Name:</strong> {{ student.name }}<br />
+          <strong>Email:</strong> {{ student.email }}<br />
+          <strong>City:</strong> {{ student.city }}<br />
+          <strong>State:</strong> {{ student.state }}<br />
+          <strong>Roll:</strong> {{ student.roll }}<br />
+          <strong>Comment:</strong> {{ student.comment }}<br />
+        </li>
+      </ul>
+    {% else %}
+      <h3>No Data Found</h3>
+    {% endif %}
+  </body>
+</html>
