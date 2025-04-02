@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+  Home
+{% endblock %}
+{% block corecss %}
+  <link rel="stylesheet" href="{% static 'core/css/base.css' %}" />
+  <link rel="stylesheet" href="{% static 'core/css/home.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>Welcome to MySite</h1>
+    <p>This is the home page of your Django application.</p>
+    <p>Explore the links in the navigation bar to learn more about Python and Django.</p>
+  </div>
+  <button type="button" class="btn btn-primary">Primary</button>
+  <button type="button" class="btn btn-secondary">Secondary</button>
+  <button type="button" class="btn btn-success">Success</button>
+  <button type="button" class="btn btn-danger">Danger</button>
+  <button type="button" class="btn btn-warning">Warning</button>
+  <button type="button" class="btn btn-info">Info</button>
+  <button type="button" class="btn btn-light">Light</button>
+  <button type="button" class="btn btn-dark">Dark</button>
+
+  <button type="button" class="btn btn-link">Link</button>
+{% endblock %}
