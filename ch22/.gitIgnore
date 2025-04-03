@@ -1,0 +1,80 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+db.sqlite3-journal
+
+# Django media/static files
+/media/
+/static/
+/staticfiles/
+/mediafiles/
+
+# Environment
+.env
+.env.*
+venv/
+ENV/
+env/
+.venv/
+*.env
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# PyCharm
+.idea/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Migrations (optional, if you want to ignore them)
+# **/migrations/
+
+# Test output
+test-results/
+
+# pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pytest
+.pytest_cache/
+
+# Build
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Wheel
+*.whl
+
+# Sphinx documentation
+docs/_build/
+
+# Local settings
+local_settings.py
+
+# SQLite backup files
+*.sqlite3-*
+
+# Node modules (if using frontend tools)
+node_modules/

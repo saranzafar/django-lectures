@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>
+    {% block title %}{% endblock %}
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'core/css/main.css' %}" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="site-name">MySite</a>
+    <ul>
+      <li><a href="{% url 'home'%}" class="bg-purple-600">Home</a></li>
+      <li><a href="{% url 'python' %}">Python</a></li>
+      <li><a href="{% url 'django' %}">Django</a></li>
+
+    </ul>
+  </nav>
+
+  {% block content %}{% endblock %}
+
+  <footer style="text-align: center; padding: 1rem; background-color: #22223b; color: #f2e9e4; position: fixed; width: 100%; bottom: 0;">
+    <p>&copy; 2025 MySite. All rights reserved.</p>
+  </footer>
+</body>
+</html>
