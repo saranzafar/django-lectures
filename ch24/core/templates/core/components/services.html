@@ -1,0 +1,35 @@
+{# core/templates/core/components/services.html #}
+{% load static %}
+
+<section class="w-full bg-gradient-to-t from-[#fff5e0] to-[#e2e2e2] px-4 py-16 md:px-8 md:py-24">
+  <div class="max-w-7xl mx-auto text-center">
+    <!-- Section Heading -->
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Our Menu</h2>
+    <p class="mt-2 text-gray-600 text-sm md:text-base max-w-2xl mx-auto">Delicious dishes crafted with the freshest ingredients. Enjoy a variety of flavors, expertly prepared by our chefs.Experience quality, taste, and satisfaction in every bite.</p>
+
+    <!-- Cards Container -->
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+      {# Loop over the “services” list passed from views.py #}
+      {% for service in services %}
+        <div class="bg-gradient-to-b from-[#fff5e0] to-[#f3ebe2] rounded-xl shadow-lg overflow-hidden flex flex-col transition-transform duration-300 ease-in-out hover:scale-[1.02]">
+          <img src="{{ service.image_url }}" alt="{{ service.name }}" class="w-full h-48 object-cover" />
+
+          <!-- Card Content -->
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="text-xl font-bold text-gray-800">{{ service.name }}</h3>
+            <p class="mt-2 text-gray-600 text-sm flex-1">{{ service.description }}</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="text-[#fb7b29] font-semibold text-lg">{{ service.price }}</span>
+              <button class="bg-[#fb7b29] text-white px-4 py-2 rounded-full shadow-md hover:bg-[#e06518] transition-colors duration-200 ease-in-out cursor-pointer">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- “View All Services” Button -->
+    <div class="mt-12 flex justify-center">
+      <a href="{% url 'menu' %}" class="bg-[#fb7b29] text-white px-8 py-3 rounded-full shadow-md hover:bg-[#e06518] transition-colors duration-200 ease-in-out cursor-pointer">View All Services</a>
+    </div>
+  </div>
+</section>

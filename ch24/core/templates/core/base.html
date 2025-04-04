@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.3/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet" />
+    <style>
+      /* Ensures Dancing Script is available for Tailwind's arbitrary value system */
+      /* You can also extend your tailwind.config.js if you have a project setup */
+      body {
+        font-family: sans-serif; /* Default font for other text */
+      }
+    </style>
+    <link rel="stylesheet" href="{% static 'core/css/main.css' %}" />
+    <title>
+      {% block title %}
+
+      {% endblock %}
+    </title>
+  </head>
+  <body class="antialiased">
+    {% block navbar %}
+      {% include 'core/components/navbar.html' %}
+    {% endblock %}
+    {% comment %}global{% endcomment %}
+    {% block content %}
+
+    {% endblock %}
+
+    {% comment %}Home{% endcomment %}
+    {% block hero %}
+
+    {% endblock %}
+
+    {% block services %}
+
+    {% endblock %}
+
+    {% block about %}
+
+    {% endblock %}
+
+    {% block testimonials %}
+
+    {% endblock %}
+
+    {% block footer %}
+      {% include 'core/components/footer.html' %}
+    {% endblock %}
+
+    {% comment %}contact{% endcomment %}
+
+    <!-- Minimal JS to toggle mobile menu (height + fade) -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const btn = document.getElementById('mobile-menu-button')
+        const menu = document.getElementById('mobile-menu')
+        const openIcon = document.getElementById('menu-open-icon')
+        const closeIcon = document.getElementById('menu-close-icon')
+      
+        if (btn && menu && openIcon && closeIcon) {
+          btn.addEventListener('click', () => {
+            // Toggle visibility of mobile menu
+            menu.classList.toggle('hidden')
+            // Swap icons
+            openIcon.classList.toggle('hidden')
+            closeIcon.classList.toggle('hidden')
+          })
+        }
+      
+        // Example footer year auto-update (if you have a <span id="year"></span> in footer):
+        const yearSpan = document.getElementById('year')
+        if (yearSpan) {
+          yearSpan.textContent = new Date().getFullYear()
+        }
+      })
+    </script>
+  </body>
+</html>

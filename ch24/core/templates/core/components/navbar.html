@@ -1,0 +1,97 @@
+<nav class="bg-[#fbedd9]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo (always visible) -->
+      <div class="flex-shrink-0">
+        <a href="#" class="text-2xl font-bold" style="font-family: 'Dancing Script', cursive; color: #fb7b29;">Khana Khazana</a>
+      </div>
+
+      <!-- Hamburger Button (visible on mobile only) -->
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="text-gray-800 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-colors duration-200" aria-label="Toggle menu">
+          <!-- Menu Icon (bars) -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="menu-open-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+
+          <!-- Close Icon (X) – hidden by default -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="menu-close-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Inline Menu (md and up) -->
+      <div class="hidden md:flex md:items-center md:space-x-6">
+        <!-- 1) Home Link -->
+        <a href="{% url 'home' %}" class="text-gray-700 hover:text-gray-900 text-lg transition-colors duration-200">Home</a>
+        <!-- 2) Menu Link -->
+        <a href="{% url 'menu' %}" class="text-gray-700 hover:text-gray-900 text-lg transition-colors duration-200">Menu</a>
+        <!-- 3) Tracking Link -->
+        <a href="{% url 'tracking' %}" class="text-gray-700 hover:text-gray-900 text-lg transition-colors duration-200">Tracking</a>
+        <!-- 4) Reservation Link -->
+        <a href="{% url 'reservation' %}" class="text-gray-700 hover:text-gray-900 text-lg transition-colors duration-200">Reservation</a>
+        <!-- 5) Contact Link -->
+        <a href="{% url 'contact' %}" class="text-gray-700 hover:text-gray-900 text-lg transition-colors duration-200">Contact</a>
+
+        <!-- 6) Search Input -->
+        <div class="relative">
+          <input type="text" placeholder="Search" class="pl-10 pr-4 py-2 rounded-full bg-white text-gray-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-shadow duration-200 ease-in-out" />
+          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <!-- Magnifying‐Glass Icon (Heroicon outline) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- 7) Shopping Cart + Badge -->
+        <div>
+          <a href="#" class="relative text-gray-800 hover:text-gray-900 transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1 2h13M7 13L5.4 5M17 13l1 2M6 21a1 1 0 100-2 1 1 0 000 2zm12 0a1 1 0 100-2 1 1 0 000 2z" />
+            </svg>
+            <span class="absolute -top-1 -right-1 bg-[#fb7b29] text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">2</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu (hidden by default) -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[#fbedd9] border-t border-[#f4d9c0]">
+    <div class="px-4 pt-4 pb-6 space-y-4">
+      <!-- 1) Home Link -->
+      <a href="{% url 'home' %}" class="block text-gray-700 hover:text-gray-900 text-lg transition-colors duration-200">Home</a>
+      <!-- 2) Menu Link -->
+      <a href="{% url 'menu' %}" class="block text-gray-700 hover:text-gray-900 text-lg transition-colors duration-200">Menu</a>
+      <!-- 3) Tracking Link -->
+      <a href="{% url 'tracking' %}" class="block text-gray-700 hover:text-gray-900 text-lg transition-colors duration-200">Tracking</a>
+      <!-- 4) Reservation Link -->
+      <a href="{% url 'reservation' %}" class="block text-gray-700 hover:text-gray-900 text-lg transition-colors duration-200">Reservation</a>
+      <!-- 5) Contact Link -->
+      <a href="{% url 'contact' %}" class="block text-gray-700 hover:text-gray-900 text-lg transition-colors duration-200">Contact</a>
+
+      <!-- 6) Search Input (full width on mobile) -->
+      <div class="relative">
+        <input type="text" placeholder="Search" class="w-full pl-10 pr-4 py-2 rounded-full bg-white text-gray-500 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-shadow duration-200 ease-in-out" />
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- 7) Shopping Cart + Badge (mobile) -->
+      <a href="#" class="inline-flex items-center space-x-2 text-gray-700 hover:text-gray-900 transition-colors duration-200">
+        <div class="relative">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1 2h13M7 13L5.4 5M17 13l1 2M6 21a1 1 0 100-2 1 1 0 000 2zm12 0a1 1 0 100-2 1 1 0 000 2z" />
+          </svg>
+          <span class="absolute -top-1 -right-1 bg-[#fb7b29] text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">2</span>
+        </div>
+        <span class="text-gray-700">Cart</span>
+      </a>
+    </div>
+  </div>
+</nav>

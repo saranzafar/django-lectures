@@ -1,0 +1,104 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+  Order Tracking
+{% endblock %}
+
+{% block content %}
+  <main class="py-16 bg-gradient-to-b from-[#fbedd9] to-[#e2e2e2] min-h-[90vh]">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <!-- TRACKING FORM -->
+      <div class="bg-white rounded-xl shadow p-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Track Your Order</h2>
+        <form action="{% url 'tracking' %}" method="get" class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
+          <input type="text" name="order_id" placeholder="Enter Order ID" required class="w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#fb7b29] focus:border-transparent transition-shadow duration-200 ease-in-out" />
+          <button type="submit" class="w-full md:w-auto bg-[#fb7b29] text-white px-6 py-3 rounded-full shadow-md hover:bg-[#e06518] transition-colors duration-200 ease-in-out">Track</button>
+        </form>
+      </div>
+
+      {% if order %}
+        <!-- TRACKING STATUS CARD -->
+        <div class="mt-12 bg-white rounded-xl shadow p-8">
+          <!-- Order Header -->
+          <div class="mb-8 text-center">
+            <h3 class="text-xl font-semibold">{{ order.restaurant_name }}</h3>
+            <p class="text-gray-600">
+              Order ID:
+              <span class="font-medium text-gray-800">{{ order.id }}</span>
+            </p>
+            <p class="mt-1 text-gray-600">
+              Estimated Delivery:
+              <span class="font-medium text-gray-800">{{ order.eta }}</span>
+            </p>
+          </div>
+
+          <!-- HORIZONTAL TIMELINE -->
+          <div class="relative">
+            <!-- Connector Line -->
+            <div class="border-t-2 border-gray-200 absolute top-5 left-0 right-0"></div>
+            <ul class="flex justify-between items-center relative z-10">
+              {% for step in steps %}
+                <li class="flex flex-col items-center text-center w-1/4">
+                  <div class="{% if step.completed %}
+                      
+                    
+                    bg-[#fb7b29] text-white
+
+
+                    {% else %}
+                      
+                    
+                    bg-white border-2 border-gray-300 text-gray-500
+
+
+                    {% endif %} rounded-full w-10 h-10 flex items-center justify-center">
+                    {% if step.completed %}
+                      <!-- Heroicon: check -->
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    {% else %}
+                      <!-- Step Number -->
+                      <span class="text-sm font-medium">{{ forloop.counter }}</span>
+                    {% endif %}
+                  </div>
+                  <span class="mt-2 text-sm {% if step.completed %}
+                      
+                    
+                    text-gray-800
+
+
+                    {% else %}
+                      
+                    
+                    text-gray-500
+
+
+                    {% endif %}">
+                    {{ step.label }}
+                  </span>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- ORDER DETAILS -->
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-2">Delivery Address</h4>
+              <p class="text-gray-600">{{ order.delivery_address }}</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-2">Contact</h4>
+              <p class="text-gray-600">{{ order.contact_number }}</p>
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <!-- INSTRUCTION IF NO ORDER ENTERED -->
+        <div class="mt-12 text-center text-gray-600">Enter your Order ID above to see tracking details.</div>
+      {% endif %}
+    </div>
+  </main>
+{% endblock %}
