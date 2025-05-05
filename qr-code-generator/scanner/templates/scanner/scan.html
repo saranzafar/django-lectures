@@ -1,0 +1,74 @@
+% extends 'core/base.html' %}
+{% block title %}Scan QR | GS Petrol Pump{% endblock %}
+{% block content %}
+<div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+  <div class="px-8 py-6 bg-green-600 text-white">
+    <h2 class="text-2xl font-bold">Scan & Verify QR Code</h2>
+    <p class="mt-1">Upload an image to process payment submission instantly.</p>
+  </div>
+  <div class="p-8 space-y-6">
+    {% if messages %}
+      <div class="space-y-4">
+        {% for message in messages %}
+          <div class="{{ message.tags == 'error'|yesno:'bg-red-50 border-l-4 border-red-500 text-red-700,p-4 rounded','bg-green-50 border-l-4 border-green-500 text-green-700 p-4 rounded' }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data" id="scanForm" class="space-y-4">
+      {% csrf_token %}
+      <label class="block text-sm font-medium text-gray-700">Mobile Number</label>
+      <input type="tel" name="mobile" placeholder="03xxxxxxxxx" required class="mt-1 block w-full border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500" />
+
+      <label class="block text-sm font-medium text-gray-700">Upload QR Image</label>
+      <div id="dropzone" class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-green-500 transition">
+        <input type="file" name="qr_image" id="qr-input" accept="image/*" class="hidden" required />
+        <p class="text-gray-500">Click or drag file here to upload</p>
+      </div>
+      <div id="upload-preview" class="hidden text-center">
+        <img id="preview-image" class="mx-auto w-32 h-32 rounded-lg mb-4" />
+        <p id="file-name" class="text-sm text-gray-700"></p>
+        <button type="button" onclick="removeFile()" class="mt-2 text-red-600">Remove</button>
+      </div>
+
+      <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition">Scan</button>
+    </form>
+    {% if result %}
+      <div class="mt-6">
+        {% if result.success %}
+          <h3 class="text-xl font-bold text-green-600">Payment Verified ✓</h3>
+          <div class="mt-4 space-y-2">
+            <p><strong>Mobile:</strong> {{ result.mobile }}</p>
+            <p><strong>Amount/Data:</strong> {{ result.amount|default:result.data }}</p>
+          </div>
+        {% else %}
+          <h3 class="text-xl font-bold text-red-600">Verification Failed</h3>
+          <p class="mt-2 text-red-700">{{ result }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+<script>
+  const dropzone = document.getElementById('dropzone');
+  const input = document.getElementById('qr-input');
+  const preview = document.getElementById('upload-preview');
+  const imgEl = document.getElementById('preview-image');
+  const nameEl = document.getElementById('file-name');
+
+  dropzone.addEventListener('click', () => input.click());
+  input.addEventListener('change', e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    imgEl.src = URL.createObjectURL(file);
+    nameEl.textContent = file.name;
+    dropzone.classList.add('hidden');
+    preview.classList.remove('hidden');
+  });
+  function removeFile() {
+    input.value = '';
+    preview.classList.add('hidden');
+    dropzone.classList.remove('hidden');
+  }
+</script>

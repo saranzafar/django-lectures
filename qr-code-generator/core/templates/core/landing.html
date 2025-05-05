@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+{% block title %}
+  Welcome | GS Petrol Pump
+{% endblock %}
+{% block content %}
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="space-y-6">
+      <h1 class="text-5xl font-extrabold text-secondary">Fast & Secure QR Payments</h1>
+      <p class="text-lg text-gray-600">Streamline transactions at your petrol station with dynamic QR code generation and instant scan verification.</p>
+      <div class="flex space-x-4">
+        <a href="{% url 'scanner:generate_qr' %}" class="bg-secondary hover:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition">Generate QR</a>
+        <a href="{% url 'scanner:scan_qr' %}" class="border-2 border-secondary hover:border-blue-400 text-secondary font-semibold py-3 px-6 rounded-lg transition">Scan QR</a>
+      </div>
+    </div>
+    <div class="relative">
+      {% comment %} <img src="{% static 'core/img/qr_landing.png' %}" alt="QR Payment" class="w-full rounded-2xl shadow-lg" /> {% endcomment %}
+    </div>
+  </div>
+{% endblock %}
