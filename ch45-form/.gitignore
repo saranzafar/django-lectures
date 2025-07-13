@@ -1,0 +1,81 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Django
+*.log
+*.pot
+*.pyc
+db.sqlite3
+db_*.sqlite3
+.env
+*.env
+.env.*
+
+# Media & static (if generated/uploaded)
+media/
+staticfiles/
+static_root/
+static/
+
+# VS Code
+.vscode/
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+*~
+*.bak
+
+# pytest cache
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+.pyre/
+
+# pipenv
+Pipfile.lock
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Other
+*.pot
+*.mo
+
+# Ignore local database backups
+*.sqlite3-backup
+*.sqlite3.bak
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore temporary files from editors/macOS
+*.sublime-workspace
+*.sublime-project
+
+# Ignore output folders from Pycharm
+.idea/

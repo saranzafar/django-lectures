@@ -1,0 +1,72 @@
+{% extends 'student/base.html' %}
+{% load static %}
+{% load customfilter %}
+
+{% block full_width_content %}
+  <div class="d-flex justify-content-center align-items-center" style="min-height:80vh; background:#f7f9fa;">
+    <div class="card shadow-sm border-0" style="max-width: 410px; width:100%; border-radius:18px;">
+      <div class="card-body p-4">
+        <!-- Back Button -->
+        <a href="/" class="btn btn-link text-decoration-none px-0 mb-3" style="font-size:15px;">&larr; Back to Home</a>
+
+        <div class="d-flex flex-column align-items-center mb-3">
+          {% if candidate.profile_image %}
+            <img src="{{ candidate.profile_image.url }}" alt="Profile Image" class="rounded-circle mb-2" style="width: 92px; height: 92px; object-fit: cover; border: 1.5px solid #eee;" />
+          {% else %}
+            <div class="rounded-circle bg-light d-flex justify-content-center align-items-center mb-2" style="width:92px;height:92px; border:1.5px solid #eee;">
+              <span class="text-muted" style="font-size:1.8rem;">?</span>
+            </div>
+          {% endif %}
+          <div class="text-center">
+            <h5 class="mb-0 fw-semibold">{{ candidate.name }}</h5>
+            <div class="text-muted small">{{ candidate.job_city|remove_char:"[]'" }}</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <div class="row mb-1">
+            <div class="col-5 text-muted small">DOB</div>
+            <div class="col-7 text-end small">{{ candidate.dob }}</div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-5 text-muted small">Gender</div>
+            <div class="col-7 text-end small">{{ candidate.gender }}</div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-5 text-muted small">Locality</div>
+            <div class="col-7 text-end small">{{ candidate.locality }}</div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-5 text-muted small">City</div>
+            <div class="col-7 text-end small">{{ candidate.city }}</div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-5 text-muted small">Pin</div>
+            <div class="col-7 text-end small">{{ candidate.pin }}</div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-5 text-muted small">State</div>
+            <div class="col-7 text-end small">{{ candidate.state }}</div>
+          </div>
+          <div class="row mb-1">
+            <div class="col-5 text-muted small">Mobile</div>
+            <div class="col-7 text-end small">{{ candidate.mobile }}</div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-5 text-muted small">Email</div>
+            <div class="col-7 text-end small">{{ candidate.email }}</div>
+          </div>
+        </div>
+
+        <div class="mb-1">
+          <span class="text-muted small">File:</span>
+          {% if candidate.my_file %}
+            <a href="{{ candidate.my_file.url }}" class="small ms-1 text-primary text-decoration-underline" target="_blank">Download</a>
+          {% else %}
+            <span class="text-muted small ms-1">No file</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
