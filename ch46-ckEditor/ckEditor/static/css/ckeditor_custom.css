@@ -1,0 +1,69 @@
+/* Make the editor background softer */
+.ck-editor__editable_inline {
+    min-height: 250px;
+    /* bigger typing area */
+    padding: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+    background: #fafafa;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Change placeholder text color */
+.ck-placeholder::before {
+    color: #888;
+    font-style: italic;
+}
+
+/* Style headings inside the editor */
+.ck-editor__editable_inline h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 1em 0 0.5em;
+}
+
+.ck-editor__editable_inline h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0.8em 0 0.4em;
+}
+
+.ck-editor__editable_inline h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0.6em 0 0.3em;
+}
+
+/* Links inside editor */
+.ck-editor__editable_inline a {
+    color: #2a8fbd;
+    text-decoration: underline;
+}
+
+.ck-editor__editable_inline a:hover {
+    color: #1c5f7d;
+}
+
+/* Bullet / number lists spacing */
+.ck-editor__editable_inline ul,
+.ck-editor__editable_inline ol {
+    padding-left: 2rem;
+    margin: 0.6em 0;
+}
+
+/* Images inside editor */
+.ck-editor__editable_inline img {
+    max-width: 100%;
+    border-radius: 6px;
+    margin: 8px 0;
+}
+
+/* Blockquotes */
+.ck-editor__editable_inline blockquote {
+    border-left: 4px solid #ccc;
+    margin: 0.8em 0;
+    padding-left: 1em;
+    color: #555;
+    font-style: italic;
+}
