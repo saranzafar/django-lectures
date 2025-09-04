@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messages</title>
+    <style>
+      .success {
+        color: green;
+      }
+      .warning {
+        color: orange;
+      }
+      .info {
+        color: blue;
+      }
+      .error {
+        color: red;
+      }
+      .debug {
+        color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Messages</h1>
+    {% if messages %}
+      {% for message in messages %}
+        {% comment %} {{ message }} {% endcomment %}
+        <span class="{{ message.tags }}">{{ message }}</span>
+
+        {% comment %}# For bootstrap{% endcomment %}
+        {% comment %} <span class="alert-{{ message.tags }}">{{ message }}</span> {% endcomment %}
+        <br />
+      {% endfor %}
+    {% endif %}
+  </body>
+</html>

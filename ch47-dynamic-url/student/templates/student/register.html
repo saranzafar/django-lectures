@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <style>
+      .success {
+        color: green;
+      }
+      .warning {
+        color: orange;
+      }
+      .info {
+        color: blue;
+      }
+      .error {
+        color: red;
+      }
+      .debug {
+        color: purple;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Register</h1>
+    {% if messages %}
+      {% for message in messages %}
+        <span class="{{ message.tags }}">{{ message }}</span>
+        <br />
+      {% endfor %}
+    {% endif %}
+    
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
