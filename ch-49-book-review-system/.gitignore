@@ -1,0 +1,65 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# === Virtual Environments ===
+.env
+.env/
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# === Django specific ===
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+static_cdn/
+local_settings.py
+
+# === IDE / Editors ===
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# === OS generated ===
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# === Testing / Coverage ===
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+htmlcov/
+coverage.xml
+
+# === Backup files ===
+*.bak
+*.swp
+*.swo
+*.orig
+
+# === CKEditor Uploads ===
+ckeditor_uploads/
+
+# === Pipenv / Poetry / etc ===
+Pipfile.lock
+poetry.lock
