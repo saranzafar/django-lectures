@@ -1,0 +1,24 @@
+{% extends 'book/base.html' %}
+
+{% block title %}
+  Update Book - {{ book.title }}
+{% endblock %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="fw-bold text-dark">✏️ Update Book: {{ book.title }}</h2>
+      <a href="{% url 'book-list' %}" class="btn btn-secondary shadow-sm"><i class="bi bi-arrow-left-circle me-1"></i> Back to Collection</a>
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+      <div class="card-body p-4">
+        <form method="post" novalidate>
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary mt-3"><i class="bi bi-save me-1"></i> Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

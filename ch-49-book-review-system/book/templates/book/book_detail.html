@@ -1,0 +1,36 @@
+{% extends 'book/base.html' %}
+
+{% block title %}{{ book.title }} - Details{% endblock %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert bg-danger alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-body">
+            <h2 class="card-title">{{ book.title }}</h2>
+            <h5 class="card-subtitle mb-2 text-muted">by {{ book.author }}</h5>
+            <span class="badge bg-primary mb-3">{{ book.get_genre_display }}</span>
+            <p class="card-text">{{ book.description }}</p>
+            <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item"><strong>ISBN:</strong> {{ book.isbn }}</li>
+                <li class="list-group-item"><strong>Publication Date:</strong> {{ book.publication_date|date:'M d, Y' }}</li>
+            </ul>
+            <div class="d-flex justify-content-between">
+                <a href="{% url 'book-list' %}" class="btn btn-secondary">Back to Collection</a>
+                <div>
+                    <a href="{% url 'book-delete' book.pk %}" class="btn btn-danger me-2">Delete</a>
+                    <a href="{% url 'book-update' book.pk %}" class="btn btn-warning me-2">Update</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'book/base.html' %}
+
+{% block title %}
+  Book Collection
+{% endblock %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="fw-bold text-dark">📚 Our Book Collection</h2>
+      <a href="{% url 'book-create' %}" class="btn btn-primary shadow-sm"><i class="bi bi-plus-circle me-1"></i> Add New Book</a>
+    </div>
+    <div class="mb-4">
+      <div class="btn-group" role="group" aria-label="Filter books">
+        <a href="{% url 'book-list' %}" class="btn btn-outline-secondary{% if not request.GET %} active{% endif %}">All</a>
+        <a href="?created_at=1" class="btn btn-outline-secondary{% if request.GET.created_at %} active{% endif %}">Created At</a>
+        <a href="?genre=fiction" class="btn btn-outline-secondary{% if request.GET.genre == 'fiction' %} active{% endif %}">Fiction</a>
+        <a href="?genre=nonfiction" class="btn btn-outline-secondary{% if request.GET.genre == 'nonfiction' %} active{% endif %}">Nonfiction</a>
+        <a href="?author=John" class="btn btn-outline-secondary{% if request.GET.author == 'John' %} active{% endif %}">Author: John</a>
+        <!-- Add more filter buttons as needed -->
+      </div>
+    </div>
+
+    {% if books %}
+      <div class="row g-4">
+        {% for book in books %}
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-card">
+              <div class="card-body p-4">
+                <h5 class="card-title mb-1"><a href="{%url 'book-details' book.pk%}" class="text-decoration-none text-dark fw-semibold">{{ book.title }}</a></h5>
+                <h6 class="card-subtitle text-muted mb-3">by {{ book.author }}</h6>
+
+                <span class="badge bg-gradient bg-info-subtle text-dark mb-3 px-3 py-2 rounded-pill">{{ book.get_genre_display }}</span>
+
+                <p class="card-text text-secondary small">{{ book.description|truncatechars:130 }}</p>
+              </div>
+
+              <div class="card-footer bg-light border-0 px-4 py-3 d-flex justify-content-between align-items-center">
+                <small class="text-muted">📅 {{ book.publication_date|date:'M d, Y' }}</small>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="alert alert-info text-center py-4 rounded-3 shadow-sm mt-4">
+        <i class="bi bi-info-circle me-2"></i>No books found. Add your first one!
+      </div>
+    {% endif %}
+  </div>
+
+  <style>
+    .hover-card {
+      transition: all 0.3s ease;
+    }
+    .hover-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    .bg-info-subtle {
+      background-color: #e0f7fa;
+    }
+  </style>
+{% endblock %}
